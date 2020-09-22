@@ -16,9 +16,25 @@
                                 {!! Form::label('name') !!}
                                 {!! Form::text('name',null,["class"=>"form-control"])!!}
                             </div>
-                            <input type="submit" value="save" class="btn btn-primary">
-                            <a href="" class="btn btn-success">back</a>
                         </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                {!! Form::label('desc') !!}
+                                {!! Form::text('desc',null,["class"=>"form-control"])!!}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            {!! Form::label('price') !!}
+                            {!! Form::number('price',null,["class"=>"form-control"])!!}
+                        </div>
+                        <div class="form-group">
+                            {!! Form::label('image upload') !!}
+                            {!! Form::file('img') !!}
+
+                        </div>
+                        <input type="submit" value="save" class="btn btn-primary">
+                        <a href="/mybot" class="btn btn-success">back</a>
+                    </div>
                     {!! Form::close() !!}
                     </div>
                 </div>
