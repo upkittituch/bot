@@ -83,7 +83,7 @@
                 </h6>
                 <a class="dropdown-item d-flex align-items-center" href="#">
                   <div class="dropdown-list-image mr-3">
-                    <img class="rounded-circle" src="img/man.png" style="max-width: 60px" alt="">
+                    <img class="rounded-circle" src="{{asset('admin/img/man.png')}}" style="max-width: 60px" alt="">
                     <div class="status-indicator bg-success"></div>
                   </div>
                   <div class="font-weight-bold">
@@ -94,7 +94,7 @@
                 </a>
                 <a class="dropdown-item d-flex align-items-center" href="#">
                   <div class="dropdown-list-image mr-3">
-                    <img class="rounded-circle" src="img/girl.png" style="max-width: 60px" alt="">
+                    <img class="rounded-circle" src="{{asset('admin/img/girl.png')}}" style="max-width: 60px" alt="">
                     <div class="status-indicator bg-default"></div>
                   </div>
                   <div>
@@ -182,3 +182,4 @@
             </li>
           </ul>
         </nav>
+</nav>

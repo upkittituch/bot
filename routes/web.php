@@ -25,8 +25,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/index',function(){
     return view ('admin.dashboard');
 });
-Route::get('/index/test',function(){
-    return view ('test');
-});
 
 Route::resource('category','CategoryController');
