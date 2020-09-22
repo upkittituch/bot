@@ -14,10 +14,10 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 {!! Form::label('name') !!}
-                                {!! Form::text('name',null,["class"=>"form-control"])!!}
+                                {!! Form::text('name',null,["class"=>"form-control" ,'placeholder'=>'name', 'required'])!!}
                             </div>
                             <input type="submit" value="save" class="btn btn-primary">
-                            <a href="" class="btn btn-success">back</a>
+                            <a href="{{URL::previous()}}" class="btn btn-success">back</a>
                         </div>
                     {!! Form::close() !!}
                     </div>

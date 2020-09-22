@@ -27,3 +27,4 @@ Route::get('/index',function(){
 });
 
 Route::resource('category','CategoryController');
+Route::resource('product','ProductController');

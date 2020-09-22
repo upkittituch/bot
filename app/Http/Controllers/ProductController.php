@@ -14,7 +14,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        
     }
 
     /**
@@ -24,7 +24,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        return view ('admin.product.create');
     }
 
     /**
@@ -35,7 +35,13 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,[
+            'name'=>'required',
+            'desc'=>'required',
+            'price'=>'required',
+            'img'=>'required|mimes:jpeg,png',
+            'category'=>'required'
+        ]);
     }
 
     /**
