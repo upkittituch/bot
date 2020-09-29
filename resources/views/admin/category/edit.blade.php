@@ -16,13 +16,9 @@
                 <div class="card-body">
                     <div class="form-group"> 
                       <label for="">Name</label>
-                      <input type="text" name="name" class="form-control @error('name') is-invalid @enderror " id="" aria-describedby=""
+                      <input type="text" name="name" class="form-control" id="" aria-describedby=""
                         placeholder="Enter name of category" value="{{$category->name}}">
-                        @error('name')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                        @enderror
+      
                     
                     </div>
                      </div>

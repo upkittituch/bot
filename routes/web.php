@@ -28,3 +28,30 @@ Route::get('/index',function(){
 
 Route::resource('category','CategoryController');
 Route::resource('product','ProductController');
+
+Route::group(['prefix'=>'auth','middleware'=>['auth','isAdmin']],function(){
+	Route::get('/dashboard', function () {
+    return view('admin.dashboard');
+});
+
+
+
+	Route::resource('category','CategoryController');
+	Route::resource('product','ProductController');
+
+	// Route::get('slider/create','SliderController@create')->name('slider.create');
+	// Route::get('slider','SliderController@index')->name('slider.index');
+	// Route::post('slider','SliderController@store')->name('slider.store');
+	// Route::delete('slider/{id}','SliderController@destroy')->name('slider.destroy');
+
+	Route::get('users','UserController@index')->name('user.index');
+
+	//orders
+	Route::get('/orders','CartController@userOrder')->name('order.index');
+	Route::get('/orders/{userid}/{orderid}','CartController@viewUserOrder')->name('user.order');
+
+
+	
+
+
+});

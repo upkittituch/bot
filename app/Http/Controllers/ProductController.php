@@ -14,7 +14,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        
+        $products = Product::latest()->get();
+        return view('admin.product.index',compact('products'));
     }
 
     /**
@@ -39,9 +40,21 @@ class ProductController extends Controller
             'name'=>'required',
             'desc'=>'required',
             'price'=>'required',
-            'img'=>'required|mimes:jpeg,png',
+            'image'=>'required|mimes:jpeg,png',
             'category'=>'required'
         ]);
+        $image = $request->file('image')->store('public/product');
+
+        Product::create([
+
+         'name'=>$request->name,
+         'desc'=>$request->desc,
+         'image'=>$image,
+         'price'=>$request->price,
+         'category_id'=>$request->category
+         ]);
+         return redirect()->route('product.index');
+        
     }
 
     /**
@@ -63,7 +76,8 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        //
+        $product = Product::find($id);
+        return view('admin.product.edit',compact('product'));
     }
 
     /**
@@ -75,7 +89,25 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $product = Product::find($id);
+        $filename = $product->image;
+        if($request->file('image')){
+            $image = $request->file('image')->store('public/product');
+            \Storage::delete($filename);
+        $product->name = $request->name;
+        $product->desc = $request->desc;
+        $product->image = $image;
+        $product->price=$request->price;
+        $product->category_id = $request->category;
+        $product->save();
+       }else{
+        $product->name = $request->name;
+        $product->desc = $request->desc;
+        $product->price=$request->price;
+        $product->category_id = $request->category;
+        $product->save();
+       }
+       return redirect()->route('product.index');
     }
 
     /**
@@ -86,6 +118,10 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        //
+      $product = Product::find($id);
+      $filename = $product->image;
+      $product->delete();
+      \Storage::delete($filename);
+      return redirect()->route('product.index');
     }
 }

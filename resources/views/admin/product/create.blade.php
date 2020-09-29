@@ -13,7 +13,7 @@
                     {!! csrf_field() !!}
                         <div class="col-md-12">
                             <div class="form-group">
-                                {!! Form::label('name') !!}
+                                {!! Form::label('Name') !!}
                                 {!! Form::text('name',null,["class"=>"form-control",'placeholder'=>'name', 'required'])!!}
                             </div>
                         </div>
@@ -37,14 +37,14 @@
                         </div>  
                         <div class="col-md-12">
                             <div class="form-group">
-                                {!! Form::label('price') !!}
+                                {!! Form::label('Price') !!}
                                 {!! Form::number('price',null,["class"=>"form-control",'placeholder'=>'0', 'required'])!!}
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="form-group">
                                 {!! Form::label('image upload') !!}
-                                {!! Form::file('img') !!}
+                                {!! Form::file('image') !!}
 
                             </div>
                         </div>

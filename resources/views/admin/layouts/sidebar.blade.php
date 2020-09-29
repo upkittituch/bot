@@ -48,8 +48,8 @@
         <div id="collapseTable" class="collapse" aria-labelledby="headingTable" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Tables</h6>
-            <a class="collapse-item" href="simple-tables.html">Simple Tables</a>
-            <a class="collapse-item" href="datatables.html">DataTables</a>
+            <a class="collapse-item" href="{{route('category.index')}}">category</a>
+            <a class="collapse-item" href="{{route('product.index')}}">product</a>
           </div>
         </div>
       </li>
@@ -84,6 +84,17 @@
           <i class="fas fa-fw fa-chart-area"></i>
           <span>Charts</span>
         </a>
+        <a class="dropdown-item" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                             <i class="fas fa-sign-out-alt"></i>
+                                                Logout
+
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
       </li>
       <hr class="sidebar-divider">
       <div class="version" id="version-ruangadmin"></div>
